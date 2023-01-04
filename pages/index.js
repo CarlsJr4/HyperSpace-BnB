@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import StyledLink from '../components/StyledLink';
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
       </Head>
       <main>
         <section>
-          <h1>Mini project: wiki?</h1>
+          <h1 className="text-3xl font-bold">Mini project: wiki?</h1>
+          <button>Hello World</button>
         </section>
         <section>
           <p>Section 2</p>
@@ -20,6 +22,12 @@ export default function Home() {
           <p>Section 3</p>
         </section>
       </main>
+      <div className="p-6 max-w-sm bg-white rounded-xl shadow-lg flex items-center space-x-4">
+        <div className="shrink-0"></div>
+        <div className="text-xl font-medium text-black">Chit Chat</div>
+        <p className="text-slate-500">You have a new message!</p>
+        <StyledLink href="pageTwo">Page two</StyledLink>
+      </div>
     </>
   );
 }
