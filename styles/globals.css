@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300&family=Montserrat:wght@800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+	font-family: "Hind";
+	color: #FFF;
+}
+
+h1, h2, h3, h4, h5, h6, li:first-child, footer .logo {
+	font-family: "Montserrat";
+}
+
+body {
+	background-color: #131416;
+}
+
