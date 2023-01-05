@@ -5,14 +5,23 @@ const Navbar = () => {
   return (
     <nav>
       <ul className="grid grid-cols-navbar gap-10 my-10 mx-20">
-        <li className="flex gap-2 items-center">
-          <IoRocket size="1.5rem" />
-          HyperSpace BnB
+        <li>
+          <StyledLink href="/">
+            <div className="flex gap-2 items-center">
+              <IoRocket size="1.5rem" />
+              <span className="logo">HyperSpace BnB</span>
+            </div>
+          </StyledLink>
         </li>
-        <li>Packages</li>
-        <li>About us</li>
-        <li>Contact</li>
-        <li>Login</li>
+        <li>
+          <StyledLink href="packages">Packages</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="schematics">Schematics</StyledLink>
+        </li>
+        <li>
+          <StyledLink href="login">Login</StyledLink>
+        </li>
       </ul>
     </nav>
   );

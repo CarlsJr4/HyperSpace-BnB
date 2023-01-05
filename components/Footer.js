@@ -36,6 +36,9 @@ const Footer = () => {
           <p>Mars</p>
           <p>Jupiter</p>
         </div>
+        <div>
+          <p>Illustrations provided by undraw.co</p>
+        </div>
       </div>
     </footer>
   );
