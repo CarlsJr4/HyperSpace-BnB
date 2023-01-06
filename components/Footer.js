@@ -9,13 +9,13 @@ import {
 const Footer = () => {
   return (
     <footer className=" bg-gray-800 py-6">
-      <div className="mx-40 flex gap-10">
+      <div className="flex gap-7 mx-14 md:mx-40 md:flex-row md:gap-10 flex-col">
         <div>
           <div className="flex gap-2 items-center py-3">
             <IoRocket size="1.5rem" />
             <span className="logo">HyperSpace BnB</span>
           </div>
-          <div className="px-8"></div>
+          <div className="md:px-8"></div>
           <p>175 Space St</p>
           <p>Spacetown, Space 12345</p>
           <p>+1 234 5678</p>

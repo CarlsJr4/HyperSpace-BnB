@@ -1,10 +1,10 @@
 import MainWrapper from '../components/MainWrapper';
 import SubSection from '../components/SubSection';
 
-const Packages = () => {
+const Locations = () => {
   return (
-    <MainWrapper title="HyperSpaceBnB - Packages">
-      <SubSection heading="Travel Packages">
+    <MainWrapper title="HyperSpaceBnB - Locations">
+      <SubSection heading="The cosmos are at your fingertips">
         <p>
           Our resorts are currently located at Luna, Mercury, Mars, and Jupiter.
         </p>
@@ -17,4 +17,4 @@ const Packages = () => {
   );
 };
 
-export default Packages;
+export default Locations;

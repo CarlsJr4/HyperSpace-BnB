@@ -12,7 +12,7 @@ const MainWrapper = ({ title, metaDesc = 'Built with Next.js', children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="mx-40">{children}</main>
+      <main className="mx-14 md:mx-40">{children}</main>
       <Footer />
     </>
   );

@@ -16,13 +16,13 @@ import location from '../assets/images/location.svg';
 export default function Home() {
   return (
     <MainWrapper title="HyperSpace BnB - Home">
-      <section className="grid grid-cols-hero items-center justify-items-end">
+      <section className="grid grid-cols-1 xl:grid-cols-hero items-center justify-items-end gap-6">
         <div>
           <h1 className="text-6xl my-5">Your second home amongst the stars</h1>
           <p className="text-lg">
             We provide the best spacecation experience in the galaxy
           </p>
-          <Link href="packages">
+          <Link href="locations">
             <Button>Explore our habs</Button>
           </Link>
         </div>
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       </section>
       <SubSection heading="Welcome to the 22nd century">
-        <div className="flex gap-8 my-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 my-12 items-center">
           <Image src={location} width={300} alt="Astronaut in space" />
           <div>
             <p>Humankind has evolved, so your vacations should too.</p>
@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </SubSection>
       <SubSection heading="Why HyperSpace BnB?">
-        <div className="flex gap-12 items-end">
+        <div className="flex flex-col lg:flex-row gap-12 items-start lg:items-end">
           <Card
             heading="100% solar power"
             text="All of our modular resorts rely on renewable energy and have zero
@@ -79,7 +79,7 @@ export default function Home() {
           />
         </div>
       </SubSection>
-      <Link href="packages">
+      <Link href="locations">
         <Button>Reserve a hab today</Button>
       </Link>
     </MainWrapper>

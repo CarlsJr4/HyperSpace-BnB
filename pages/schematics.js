@@ -2,6 +2,7 @@ import Image from 'next/image';
 import MainWrapper from '../components/MainWrapper';
 import SubSection from '../components/SubSection';
 import rocketSchematic from '../assets/images/rocketSchematic.svg';
+import robot2 from '../assets/images/robot2.svg';
 
 //  TODO: Change purple windows to main pink color
 
@@ -26,13 +27,17 @@ const Schematics = () => {
         <p>Five star safety rating</p>
 
         <div className="flex py-10">
-          <Image src={rocketSchematic} width={400} alt="Astronaut in space" />
+          <Image
+            src={rocketSchematic}
+            width={400}
+            alt="Diagram of the Kerbal XI HyperSpace Vessel"
+          />
           <div>
             <p className="schematic relative min-w-max">Emergency paracute</p>
-            <p className="schematic relative mt-6">Explorer pod</p>
-            <p className="schematic relative mt-40">Engineering bay</p>
-            <p className="schematic relative mt-20">External fuel pylons</p>
-            <p className="schematic relative mt-56">
+            <p className="schematic relative mt-10">Explorer pod</p>
+            <p className="schematic relative mt-60">Engineering bay</p>
+            <p className="schematic relative mt-28">External fuel pylons</p>
+            <p className="schematic relative mt-72">
               Heat resistant sub-light thrusters
             </p>
           </div>
@@ -48,6 +53,12 @@ const Schematics = () => {
         <p>Battery life (batteries only): 3 weeks</p>
         <p>Recharge time: 2 hours</p>
         <p>Height: 4 meters</p>
+        <br />
+        <Image
+          src={robot2}
+          width={300}
+          alt="Diagram of the Kerbal XI HyperSpace Vessel"
+        />
       </SubSection>
     </MainWrapper>
   );
