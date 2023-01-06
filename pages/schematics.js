@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import MainWrapper from '../components/MainWrapper';
-import SubSection from '../components/SubSection';
+
+import MainWrapper from '../components/core/MainWrapper';
+import SubSection from '../components/core/SubSection';
+
 import rocketSchematic from '../assets/images/rocketSchematic.svg';
 import robot2 from '../assets/images/robot2.svg';
 

@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const MainWrapper = ({ title, metaDesc = 'Built with Next.js', children }) => {
   return (

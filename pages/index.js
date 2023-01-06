@@ -1,9 +1,9 @@
-import MainWrapper from '../components/MainWrapper';
-import Link from '../components/Link';
-import LinkButton from '../components/LinkButton';
-import Card from '../components/Card';
+import MainWrapper from '../components/core/MainWrapper';
+import LinkButton from '../components/core/LinkButton';
+import Card from '../components/core/Card';
+import SubSection from '../components/core/SubSection';
+
 import Image from 'next/image';
-import SubSection from '../components/SubSection';
 
 import plant from '../assets/images/plant.svg';
 import rocket from '../assets/images/rocket.svg';

@@ -1,5 +1,5 @@
-import MainWrapper from '../components/MainWrapper';
-import SubSection from '../components/SubSection';
+import MainWrapper from '../components/core/MainWrapper';
+import SubSection from '../components/core/SubSection';
 
 const Login = () => {
   return (
