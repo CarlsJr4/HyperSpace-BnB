@@ -11,8 +11,6 @@ import robot from '../assets/images/robot.svg';
 import astronaut from '../assets/images/astronaut.svg';
 import location from '../assets/images/location.svg';
 
-//  TODO: Responsive
-
 export default function Home() {
   return (
     <MainWrapper title="HyperSpace BnB - Home">
@@ -30,7 +28,11 @@ export default function Home() {
       </section>
       <SubSection heading="Welcome to the 22nd century">
         <div className="flex flex-col lg:flex-row gap-8 my-12 items-center">
-          <Image src={location} width={300} alt="Astronaut in space" />
+          <Image
+            src={location}
+            width={300}
+            alt="Two people using a telescope to look at the night sky"
+          />
           <div>
             <p>Humankind has evolved, so your vacations should too.</p>
             <br />

@@ -13,6 +13,9 @@ const Locations = () => {
           planet (or moon).
         </p>
       </SubSection>
+      <SubSection heading="Current listings">
+        <p>Search all listings here:</p>
+      </SubSection>
     </MainWrapper>
   );
 };

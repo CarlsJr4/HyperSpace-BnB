@@ -4,8 +4,6 @@ import SubSection from '../components/SubSection';
 import rocketSchematic from '../assets/images/rocketSchematic.svg';
 import robot2 from '../assets/images/robot2.svg';
 
-//  TODO: Change purple windows to main pink color
-
 const Schematics = () => {
   return (
     <MainWrapper title="HyperSpaceBnB - Schematics">
@@ -32,7 +30,7 @@ const Schematics = () => {
             width={400}
             alt="Diagram of the Kerbal XI HyperSpace Vessel"
           />
-          <div>
+          <div className="hidden sm:block">
             <p className="schematic relative min-w-max">Emergency paracute</p>
             <p className="schematic relative mt-10">Explorer pod</p>
             <p className="schematic relative mt-60">Engineering bay</p>
@@ -57,7 +55,7 @@ const Schematics = () => {
         <Image
           src={robot2}
           width={300}
-          alt="Diagram of the Kerbal XI HyperSpace Vessel"
+          alt="Visual of the Assisant v4.0 robot butler"
         />
       </SubSection>
     </MainWrapper>
