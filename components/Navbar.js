@@ -6,6 +6,7 @@ const Navbar = () => {
     <nav>
       <ul className="grid grid-cols-navbar gap-10 my-10 mx-20">
         <li>
+          {/* TODO: Fix home button being too big */}
           <StyledLink href="/">
             <div className="flex gap-2 items-center">
               <IoRocket size="1.5rem" />

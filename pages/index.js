@@ -11,6 +11,8 @@ import robot from '../assets/images/robot.svg';
 import astronaut from '../assets/images/astronaut.svg';
 import location from '../assets/images/location.svg';
 
+//  TODO: Responsive
+
 export default function Home() {
   return (
     <MainWrapper title="HyperSpace BnB - Home">
@@ -69,7 +71,7 @@ export default function Home() {
           />
           <Card
             heading="Autonomous transport"
-            text="  Our autonomous hyperspace rockets will ensure a safe commute to
+            text="  Our autonomous hyperspace vessels will ensure a safe commute to
                 your target destination and back."
             src={rocket}
             imgSize={200}
