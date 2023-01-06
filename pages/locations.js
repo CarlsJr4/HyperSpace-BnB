@@ -69,7 +69,7 @@ const Locations = () => {
           ) : (
             <p>Discovered {data.length} listings:</p>
           )}
-          <div className=" grid gap-8">
+          <div className=" grid gap-8 min-h-screen">
             {isLoading ? <Spinner /> : listings}
           </div>
         </div>

@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, li:first-child, .logo, .boldText {
 }
 
 body {
-	background-color: #131416;
+	background: linear-gradient(180deg, rgba(47,0,54,1) 0%, rgba(19,20,22,1) 500px);
 }
 
 .schematic::before {
