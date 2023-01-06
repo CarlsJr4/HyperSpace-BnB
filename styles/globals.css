@@ -14,7 +14,8 @@ h1, h2, h3, h4, h5, h6, li:first-child, .logo, .boldText {
 }
 
 body {
-	background: linear-gradient(180deg, rgba(47,0,54,1) 0%, rgba(19,20,22,1) 500px);
+	background: linear-gradient(180deg, rgb(33, 0, 37) 0%, rgba(19,20,22,1) 500px);
+	background-attachment: fixed;
 }
 
 .schematic::before {
