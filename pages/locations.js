@@ -2,8 +2,54 @@ import MainWrapper from '../components/core/MainWrapper';
 import SubSection from '../components/core/SubSection';
 import LocationCard from '../components/locations/LocationCard';
 import FilterBar from '../components/locations/FilterBar';
+import Spinner from '../components/locations/Spinner';
+
+import { useState, useEffect } from 'react';
+
+import Image from 'next/image';
 
 const Locations = () => {
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch('https://mockend.com/CarlsJr4/HyperSpace-BnB-mock/listings')
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      });
+  }, []);
+
+  let listings = data.map(
+    ({
+      celestialBody,
+      habName,
+      id,
+      image,
+      location,
+      rate,
+      description,
+      freeBreakfast,
+      indoorPool,
+      petFriendly,
+      vipLounge,
+    }) => {
+      return (
+        <LocationCard
+          key={id}
+          title={habName}
+          location={location}
+          body={celestialBody}
+          rate={rate}
+          src={image}
+          desc={description}
+        />
+      );
+    }
+  );
+
   return (
     <MainWrapper title="HyperSpaceBnB - Locations">
       <SubSection heading="The cosmos are at your fingertips">
@@ -16,18 +62,16 @@ const Locations = () => {
         </p>
       </SubSection>
       <SubSection heading="Current listings">
-        <p>
-          Our habs are currently under construction, but you can preview what we
-          have to offer in the future here:
-        </p>
-        <FilterBar />
+        {/* <FilterBar /> */}
         <div className="grid gap-5">
-          {/* Use mockend to fetch data from your fake API and render a list of location cards */}
-          <LocationCard text="location1" />
-          <LocationCard text="location1" />
-          <LocationCard text="location1" />
-          <LocationCard text="location1" />
-          <LocationCard text="location1" />
+          {isLoading ? (
+            <p>Retrieving results...</p>
+          ) : (
+            <p>Discovered {data.length} listings:</p>
+          )}
+          <div className=" grid gap-8">
+            {isLoading ? <Spinner /> : listings}
+          </div>
         </div>
       </SubSection>
     </MainWrapper>

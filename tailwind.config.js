@@ -9,6 +9,7 @@ module.exports = {
       gridTemplateColumns: {
         navbar: '1fr auto auto',
         hero: '1fr 1fr',
+        listings: 'auto 1fr',
       },
       backgroundImage: {
         habitat: "url('/assets/images/habitat.png')",

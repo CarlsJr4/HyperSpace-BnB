@@ -9,7 +9,7 @@
 	color: #FFF;
 }
 
-h1, h2, h3, h4, h5, h6, li:first-child, .logo {
+h1, h2, h3, h4, h5, h6, li:first-child, .logo, .boldText {
 	font-family: "Montserrat";
 }
 
