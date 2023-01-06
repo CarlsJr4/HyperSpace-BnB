@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav>
       <ul className="grid grid-cols-navbar gap-10 my-10 mx-5 md:mx-20">
-        <li className="justify-start">
+        <li className="justify-self-start">
           <StyledLink href="/">
             <span className="flex gap-2">
               <IoRocket size="1.5rem" />

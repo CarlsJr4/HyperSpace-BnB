@@ -1,6 +1,6 @@
 import MainWrapper from '../components/MainWrapper';
 import Link from '../components/Link';
-import Button from '../components/Button';
+import LinkButton from '../components/LinkButton';
 import Card from '../components/Card';
 import Image from 'next/image';
 import SubSection from '../components/SubSection';
@@ -22,9 +22,7 @@ export default function Home() {
           <p className="text-lg">
             We provide the best spacecation experience in the galaxy
           </p>
-          <Link href="locations">
-            <Button>Explore our habs</Button>
-          </Link>
+          <LinkButton href="locations">Explore our habs</LinkButton>
         </div>
         <div>
           <Image src={astronaut} width={900} alt="Astronaut in space" />
@@ -79,9 +77,7 @@ export default function Home() {
           />
         </div>
       </SubSection>
-      <Link href="locations">
-        <Button>Reserve a hab today</Button>
-      </Link>
+      <LinkButton href="locations">Reserve a hab today</LinkButton>
     </MainWrapper>
   );
 }
