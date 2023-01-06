@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        navbar: '1fr auto auto auto auto auto',
+        navbar: '1fr auto auto',
         hero: '1fr 1fr',
       },
       backgroundImage: {

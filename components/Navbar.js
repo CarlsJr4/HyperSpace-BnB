@@ -5,13 +5,12 @@ const Navbar = () => {
   return (
     <nav>
       <ul className="grid grid-cols-navbar gap-10 my-10 mx-5 md:mx-20">
-        <li>
-          {/* TODO: Fix home button being too big */}
+        <li className="justify-start">
           <StyledLink href="/">
-            <div className="flex gap-2 items-center">
+            <span className="flex gap-2">
               <IoRocket size="1.5rem" />
               <span className="logo">HyperSpace BnB</span>
-            </div>
+            </span>
           </StyledLink>
         </li>
         <li>
