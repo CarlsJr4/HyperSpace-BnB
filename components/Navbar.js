@@ -6,7 +6,7 @@ import { IoRocket } from 'react-icons/io5';
 const Navbar = () => {
   return (
     <nav>
-      <ul className="grid grid-cols-navbar gap-10 my-10 mx-5 md:mx-20">
+      <ul className="grid grid-cols-1 sm:grid-cols-navbar gap-5 sm:gap-10 my-10 mx-5 md:mx-20">
         <li className="justify-self-start">
           <StyledLink href="/">
             <span className="flex gap-2">

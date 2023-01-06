@@ -16,8 +16,10 @@ export default function Home() {
     <MainWrapper title="HyperSpace BnB - Home">
       <section className="grid grid-cols-1 xl:grid-cols-hero items-center justify-items-end gap-6">
         <div>
-          <h1 className="text-6xl my-5">Your second home amongst the stars</h1>
-          <p className="text-lg">
+          <h1 className="text-5xl md:text-6xl my-5">
+            Your second home amongst the stars
+          </h1>
+          <p className="text-md md:text-lg">
             We provide the best spacecation experience in the galaxy
           </p>
           <LinkButton href="locations">Explore our habs</LinkButton>
@@ -79,7 +81,7 @@ export default function Home() {
           />
         </div>
       </SubSection>
-      <LinkButton href="locations">Reserve a hab today</LinkButton>
+      <LinkButton href="locations">Find your hab</LinkButton>
     </MainWrapper>
   );
 }
