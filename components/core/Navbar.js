@@ -1,8 +1,6 @@
 import StyledLink from './Link';
 import { IoRocket } from 'react-icons/io5';
 
-// TODO: Responsive
-
 const Navbar = () => {
   return (
     <nav>
