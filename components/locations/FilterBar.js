@@ -1,15 +1,19 @@
-const FilterBar = () => {
+const FilterBar = ({ onChange }) => {
   // Todo: Update dataset based on filters
   // Todo: Update pagination based on filters
-  // Todo: initial filter by highest ratings
 
   return (
     <>
       <div className="flex flex-col gap-6 mb-6">
         <div>
           <label htmlFor="listings">
-            Sort by:
-            <select name="listings" id="listings" className="text-black">
+            <span className="mr-2">Sort by:</span>
+            <select
+              name="listings"
+              id="listings"
+              className="text-black rounded-md p-1"
+              onChange={e => onChange(e.target.value)}
+            >
               <option value="ratingHighest" className="text-black">
                 Rating (high to low)
               </option>

@@ -10,34 +10,95 @@ export async function getStaticProps() {
   const res = await fetch(
     'https://mockend.com/CarlsJr4/HyperSpace-BnB-mock/listings'
   );
-  const dataListings = await res.json();
+  const data = await res.json();
+  // Initial data sort by rating descending
+  data.sort((a, b) => {
+    if (a['rating'] < b['rating']) {
+      return 1;
+    }
+    if (a['rating'] > b['rating']) {
+      return -1;
+    }
+    return 0;
+  });
 
   return {
-    props: { dataListings },
+    props: { data },
   };
 }
 
-const Locations = ({ dataListings }) => {
+const Locations = ({ data }) => {
   const [subPage, setSubPage] = useState(1);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
+  const [filteredData, setFilteredData] = useState(data);
+
+  function onSelectChange(filterValue) {
+    switch (filterValue) {
+      case 'ratingHighest':
+        setFilteredData(dataFilter('rating', 'descending'));
+        break;
+      case 'ratingLowest':
+        setFilteredData(dataFilter('rating', 'ascending'));
+        break;
+      case 'priceLowest':
+        setFilteredData(dataFilter('rate', 'ascending'));
+        break;
+      case 'priceHighest':
+        setFilteredData(dataFilter('rate', 'descending'));
+        break;
+    }
+  }
+
+  function dataFilter(parameter, order) {
+    const filteredArray = [...filteredData];
+    setSubPage(1);
+    window.scrollTo(0, 0);
+
+    if (order === 'descending') {
+      filteredArray.sort((a, b) => {
+        if (a[parameter] < b[parameter]) {
+          return 1;
+        }
+        if (a[parameter] > b[parameter]) {
+          return -1;
+        }
+        return 0;
+      });
+      return filteredArray;
+    } else {
+      filteredArray.sort((a, b) => {
+        if (a[parameter] < b[parameter]) {
+          return -1;
+        }
+        if (a[parameter] > b[parameter]) {
+          return 1;
+        }
+        return 0;
+      });
+      return filteredArray;
+    }
+  }
 
   useEffect(() => {
     setSubPage(1);
+  }, []);
+
+  useEffect(() => {
     setStartIndex(11 * (subPage - 1) - (subPage - 1));
     if (
-      subPage === Math.ceil(dataListings.length / 10) ||
-      dataListings.length <= 10
+      subPage === Math.ceil(filteredData.length / 10) ||
+      filteredData.length <= 10
     ) {
       // Special case when remaining items are between multiples of 10 (i.e. displaying items 41-45 from prev page which was 30-40)
-      setEndIndex(dataListings.length);
+      setEndIndex(filteredData.length);
     } else {
       setEndIndex(10 * subPage);
     }
     window.scrollTo(0, 0);
-  }, [dataListings.length, subPage]);
+  }, [subPage, filteredData.length]);
 
-  let listings = dataListings
+  let listings = filteredData
     .slice(startIndex, endIndex)
     .map(
       ({
@@ -83,10 +144,10 @@ const Locations = ({ dataListings }) => {
         </p>
       </SubSection>
       <SubSection heading="Current listings">
-        <FilterBar />
+        <FilterBar onChange={onSelectChange} />
         <div className="grid gap-5">
           <p>
-            Showing {startIndex + 1}-{endIndex} of {dataListings.length} hab
+            Showing {startIndex + 1}-{endIndex} of {filteredData.length} hab
             listings
           </p>
           <div className=" grid gap-8 min-h-screen">{listings}</div>
@@ -94,7 +155,7 @@ const Locations = ({ dataListings }) => {
       </SubSection>
       <Pagination
         subPage={subPage}
-        data={dataListings}
+        data={filteredData}
         setSubPage={setSubPage}
       />
     </MainWrapper>
