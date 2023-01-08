@@ -35,7 +35,7 @@ const Locations = () => {
       setEndIndex(10 * subPage);
     }
     window.scrollTo(0, 0);
-  }, [subPage]);
+  }, [data.length, subPage]);
 
   let listings = data
     .slice(startIndex, endIndex)
