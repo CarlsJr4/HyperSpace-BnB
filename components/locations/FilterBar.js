@@ -1,5 +1,5 @@
 const FilterBar = () => {
-  return <div>Filter locations here</div>;
+  return <div>Filter by:</div>;
 };
 
 export default FilterBar;

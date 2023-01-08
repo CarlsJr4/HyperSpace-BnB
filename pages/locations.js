@@ -48,6 +48,7 @@ const Locations = () => {
         location,
         rate,
         description,
+        rating,
         freeBreakfast,
         indoorPool,
         petFriendly,
@@ -62,6 +63,7 @@ const Locations = () => {
             rate={rate}
             src={image}
             desc={description}
+            rating={rating}
           />
         );
       }
@@ -79,7 +81,7 @@ const Locations = () => {
         </p>
       </SubSection>
       <SubSection heading="Current listings">
-        {/* <FilterBar /> */}
+        <FilterBar />
         <div className="grid gap-5">
           {isLoading ? (
             <p>Retrieving results...</p>

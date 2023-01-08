@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import LinkButton from '../core/LinkButton';
 import { GiRingedPlanet } from 'react-icons/gi';
-
-// TODO: Pagination
+import { useState, useEffect } from 'react';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 export default function LocationCard({
   key,
@@ -12,6 +12,7 @@ export default function LocationCard({
   rate,
   src,
   desc,
+  rating,
 }) {
   return (
     <div key={key} className="bg-[#25192e] p-4 rounded-md">
@@ -26,6 +27,14 @@ export default function LocationCard({
         <div className="flex flex-col gap-2">
           <p className="boldText text-2xl">{title}</p>
           <p className="boldText">{location}</p>
+          <div className="flex py-2">
+            {Array.from({ length: rating }, i => (
+              <AiFillStar key={i} />
+            ))}
+            {Array.from({ length: 5 - rating }, i => (
+              <AiOutlineStar key={i} />
+            ))}
+          </div>
           <p
             className={`
 							${body === 'Mars' ? 'bg-red-500' : ''}
