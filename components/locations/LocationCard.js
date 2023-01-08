@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import LinkButton from '../core/LinkButton';
 import { GiRingedPlanet } from 'react-icons/gi';
-import { useState, useEffect } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 export default function LocationCard({
@@ -49,7 +47,6 @@ export default function LocationCard({
           </p>
           <p>${rate}/night</p>
           <p>{desc}</p>
-          <LinkButton href="/">More info</LinkButton>
         </div>
       </div>
     </div>

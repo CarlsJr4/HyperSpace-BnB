@@ -79,6 +79,12 @@ const Locations = () => {
           Please note that commute time and habitats available will vary by
           planet (or moon).
         </p>
+        <br />
+        <p>
+          Important note: Booking is currently unavailable due to the
+          galaxy-wide pandemic, but you can still browse our options for when
+          planetary borders re-open.
+        </p>
       </SubSection>
       <SubSection heading="Current listings">
         <FilterBar />
