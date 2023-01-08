@@ -3,7 +3,6 @@ import { GiRingedPlanet } from 'react-icons/gi';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 export default function LocationCard({
-  key,
   title,
   location,
   body,
@@ -13,7 +12,7 @@ export default function LocationCard({
   rating,
 }) {
   return (
-    <div key={key} className="bg-[#25192e] p-4 rounded-md">
+    <div className="bg-[#25192e] p-4 rounded-md">
       <div className="grid grid-cols-1 lg:grid-cols-listings gap-8">
         <Image
           src={src}
@@ -26,11 +25,11 @@ export default function LocationCard({
           <p className="boldText text-2xl">{title}</p>
           <p className="boldText">{location}</p>
           <div className="flex py-2">
-            {Array.from({ length: rating }, i => (
-              <AiFillStar key={i} />
+            {Array.from({ length: rating }, (_, i) => (
+              <AiFillStar key={`${title}-filledStar-${i}`} />
             ))}
-            {Array.from({ length: 5 - rating }, i => (
-              <AiOutlineStar key={i} />
+            {Array.from({ length: 5 - rating }, (_, i) => (
+              <AiOutlineStar key={`${title}-unfilledStar-${i}`} />
             ))}
           </div>
           <p

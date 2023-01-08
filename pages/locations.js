@@ -2,42 +2,42 @@ import MainWrapper from '../components/core/MainWrapper';
 import SubSection from '../components/core/SubSection';
 import LocationCard from '../components/locations/LocationCard';
 import FilterBar from '../components/locations/FilterBar';
-import Spinner from '../components/locations/Spinner';
 import Pagination from '../components/locations/Pagination';
 
 import { useState, useEffect } from 'react';
 
-const Locations = () => {
-  const [data, setData] = useState([]);
-  const [subPage, setSubPage] = useState(1);
-  const [isLoading, setLoading] = useState(false);
+export async function getStaticProps() {
+  const res = await fetch(
+    'https://mockend.com/CarlsJr4/HyperSpace-BnB-mock/listings'
+  );
+  const dataListings = await res.json();
 
+  return {
+    props: { dataListings },
+  };
+}
+
+const Locations = ({ dataListings }) => {
+  const [subPage, setSubPage] = useState(1);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
 
   useEffect(() => {
-    setLoading(true);
     setSubPage(1);
-    fetch('https://mockend.com/CarlsJr4/HyperSpace-BnB-mock/listings')
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
-
-  useEffect(() => {
     setStartIndex(11 * (subPage - 1) - (subPage - 1));
-    if (subPage === Math.ceil(data.length / 10) || data.length <= 10) {
+    if (
+      subPage === Math.ceil(dataListings.length / 10) ||
+      dataListings.length <= 10
+    ) {
       // Special case when remaining items are between multiples of 10 (i.e. displaying items 41-45 from prev page which was 30-40)
-      setEndIndex(data.length);
+      setEndIndex(dataListings.length);
     } else {
       setEndIndex(10 * subPage);
     }
     window.scrollTo(0, 0);
-  }, [data.length, subPage]);
+  }, [dataListings.length, subPage]);
 
-  let listings = data
+  let listings = dataListings
     .slice(startIndex, endIndex)
     .map(
       ({
@@ -49,10 +49,6 @@ const Locations = () => {
         rate,
         description,
         rating,
-        freeBreakfast,
-        indoorPool,
-        petFriendly,
-        vipLounge,
       }) => {
         return (
           <LocationCard
@@ -89,19 +85,18 @@ const Locations = () => {
       <SubSection heading="Current listings">
         <FilterBar />
         <div className="grid gap-5">
-          {isLoading ? (
-            <p>Retrieving results...</p>
-          ) : (
-            <p>
-              Showing {startIndex + 1}-{endIndex} of {data.length} hab listings
-            </p>
-          )}
-          <div className=" grid gap-8 min-h-screen">
-            {isLoading ? <Spinner /> : listings}
-          </div>
+          <p>
+            Showing {startIndex + 1}-{endIndex} of {dataListings.length} hab
+            listings
+          </p>
+          <div className=" grid gap-8 min-h-screen">{listings}</div>
         </div>
       </SubSection>
-      <Pagination subPage={subPage} data={data} setSubPage={setSubPage} />
+      <Pagination
+        subPage={subPage}
+        data={dataListings}
+        setSubPage={setSubPage}
+      />
     </MainWrapper>
   );
 };
