@@ -31,7 +31,7 @@ export default function LocationCard({
 							${body === 'Mars' ? 'bg-red-500' : ''}
 							${body === 'Luna' ? 'bg-white' : ''}
 							${body === 'Jupiter' ? 'bg-blue-500' : ''}
-							${body === 'Neptune' ? 'bg-green-500' : ''}
+							${body === 'Mercury' ? 'bg-green-500' : ''}
               flex items-center gap-1 bg-opacity-20 px-5 py-2 rounded-lg max-w-max
             `}
           >

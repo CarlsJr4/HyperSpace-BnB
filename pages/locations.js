@@ -3,12 +3,9 @@ import SubSection from '../components/core/SubSection';
 import LocationCard from '../components/locations/LocationCard';
 import FilterBar from '../components/locations/FilterBar';
 import Spinner from '../components/locations/Spinner';
-
-import { IoChevronForward, IoChevronBack } from 'react-icons/io5';
+import Pagination from '../components/locations/Pagination';
 
 import { useState, useEffect } from 'react';
-
-import Image from 'next/image';
 
 const Locations = () => {
   const [data, setData] = useState([]);
@@ -31,7 +28,12 @@ const Locations = () => {
 
   useEffect(() => {
     setStartIndex(11 * (subPage - 1) - (subPage - 1));
-    setEndIndex(10 * subPage);
+    if (subPage === Math.ceil(data.length / 10) || data.length <= 10) {
+      // Special case when remaining items are between multiples of 10 (i.e. displaying items 41-45 from prev page which was 30-40)
+      setEndIndex(data.length);
+    } else {
+      setEndIndex(10 * subPage);
+    }
     window.scrollTo(0, 0);
   }, [subPage]);
 
@@ -91,36 +93,7 @@ const Locations = () => {
           </div>
         </div>
       </SubSection>
-      {/* Pagination */}
-      <div className="flex items-center gap-4 mb-10">
-        <button
-          aria-label="previous page of locations"
-          disabled={subPage === 1}
-          onClick={() => setSubPage(subPage - 1)}
-          className={`p-3 rounded-full  ${
-            subPage === 1
-              ? 'bg-gradient-to-r from-gray-400 to-gray-400'
-              : 'bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:scale-110 transition-all'
-          }`}
-        >
-          <IoChevronBack />
-        </button>
-        <p>
-          Page {subPage} of {Math.floor(data.length / 10)}
-        </p>
-        <button
-          aria-label="next page of locations"
-          disabled={subPage === Math.floor(data.length / 10)}
-          onClick={() => setSubPage(subPage + 1)}
-          className={`p-3 rounded-full  ${
-            subPage === Math.floor(data.length / 10)
-              ? 'bg-gradient-to-r from-gray-400 to-gray-400'
-              : 'bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:scale-110 transition-all'
-          }`}
-        >
-          <IoChevronForward />
-        </button>
-      </div>
+      <Pagination subPage={subPage} data={data} setSubPage={setSubPage} />
     </MainWrapper>
   );
 };
