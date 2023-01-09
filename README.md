@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![enter image description here](https://cdn.sanity.io/images/nof1t6y8/projects/9fb18bab2ef31fd05b6fac5fc45737d905121568-2535x1248.png)
 
-## Getting Started
+## Live Project: [HyperSpace BnB](https://hyperspace-bnb.vercel.app/)
 
-First, run the development server:
+See [**Components styled with TailwindCSS**](https://github.com/CarlsJr4/HyperSpace-BnB/tree/main/components) \
+See [**Data fetching with getStaticProps**](https://github.com/CarlsJr4/HyperSpace-BnB/blob/main/pages/locations.js)
+See [**Custom pagination component**](https://github.com/CarlsJr4/HyperSpace-BnB/blob/main/components/locations/Pagination.js) \
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Hyperspace BnB is a twist on the modern vacation-booking websites of today. It includes a landing page, an informational page, and a mini-application to query listings for hotels (on other planets). It is fully-responsive and includes beautiful SVG graphics from undraw.co.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+NextJS was utilized for its excellent developer experience as well as its server-side rendering capabilities. Upon visiting the "locations" page, the user is greeted with paginated listings of space hotels. This data comes from a mock API (mockend), which was configured to generate various combinations of sci-fi sounding names as well as placeholder data for each "hotel".
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+I utilized the getStaticProps() function to serve this data, as it is completely static. This results in a quick-loading page that is able to be parsed by search engines.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+I also took the initiative to learn TailwindCSS, as its reusable utility classes took much of the hassle out of styling this website.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Designed custom pagination and sorting functions to filter fetched data based on user input
+- Utilized getStaticProps() to fetch data from a mock API and pre-render the page to the user
+- Developed and styled responsive layouts using TailwindCSS
+- Created reusable functional components using React hooks
