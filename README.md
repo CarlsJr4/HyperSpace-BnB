@@ -2,9 +2,9 @@
 
 ## Live Project: [HyperSpace BnB](https://hyperspace-bnb.vercel.app/)
 
-See [**Components styled with TailwindCSS**](https://github.com/CarlsJr4/HyperSpace-BnB/tree/main/components)
-See [**Data fetching with getStaticProps**](https://github.com/CarlsJr4/HyperSpace-BnB/blob/main/pages/locations.js) \
-See [**Custom pagination component**](https://github.com/CarlsJr4/HyperSpace-BnB/blob/main/components/locations/Pagination.js) \
+See [**Components styled with TailwindCSS**](https://github.com/CarlsJr4/HyperSpace-BnB/tree/main/components) <br />
+See [**Data fetching with getStaticProps**](https://github.com/CarlsJr4/HyperSpace-BnB/blob/main/pages/locations.js) <br />
+See [**Custom pagination component**](https://github.com/CarlsJr4/HyperSpace-BnB/blob/main/components/locations/Pagination.js)
 
 Hyperspace BnB is a twist on the modern vacation-booking websites of today. It includes a landing page, an informational page, and a mini-application to query listings for hotels (on other planets). It is fully-responsive and includes beautiful SVG graphics from undraw.co.
 
