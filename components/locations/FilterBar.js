@@ -1,6 +1,6 @@
 import FilterButton from './FilterButton';
 
-const FilterBar = ({ onChange }) => {
+const FilterBar = ({ onChange, updateIncludedPlanets }) => {
   return (
     <>
       <div className="flex flex-col gap-6 mb-6">
@@ -31,10 +31,30 @@ const FilterBar = ({ onChange }) => {
         <div>
           <div className="mb-2">Filters:</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:max-w-max gap-4">
-            <FilterButton>Luna</FilterButton>
-            <FilterButton>Mercury</FilterButton>
-            <FilterButton>Mars</FilterButton>
-            <FilterButton>Jupiter</FilterButton>
+            <FilterButton
+              updateIncludedPlanets={updateIncludedPlanets}
+              planet="Luna"
+            >
+              Luna
+            </FilterButton>
+            <FilterButton
+              updateIncludedPlanets={updateIncludedPlanets}
+              planet="Mercury"
+            >
+              Mercury
+            </FilterButton>
+            <FilterButton
+              updateIncludedPlanets={updateIncludedPlanets}
+              planet="Mars"
+            >
+              Mars
+            </FilterButton>
+            <FilterButton
+              updateIncludedPlanets={updateIncludedPlanets}
+              planet="Jupiter"
+            >
+              Jupiter
+            </FilterButton>
           </div>
         </div>
       </div>

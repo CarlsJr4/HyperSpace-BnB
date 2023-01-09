@@ -31,27 +31,43 @@ const Locations = ({ data }) => {
   const [subPage, setSubPage] = useState(1);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(10);
-  const [filteredData, setFilteredData] = useState(data);
+  const [initialData, setInitialData] = useState(data);
+  const [paginationData, setpaginationData] = useState(initialData); // Second set of data so pagination can adapt based on filters
+  const [includedPlanets, setIncludedPlanets] = useState([]);
 
   function onSelectChange(filterValue) {
     switch (filterValue) {
       case 'ratingHighest':
-        setFilteredData(dataFilter('rating', 'descending'));
+        setInitialData(sortBy('rating', 'descending'));
         break;
       case 'ratingLowest':
-        setFilteredData(dataFilter('rating', 'ascending'));
+        setInitialData(sortBy('rating', 'ascending'));
         break;
       case 'priceLowest':
-        setFilteredData(dataFilter('rate', 'ascending'));
+        setInitialData(sortBy('rate', 'ascending'));
         break;
       case 'priceHighest':
-        setFilteredData(dataFilter('rate', 'descending'));
+        setInitialData(sortBy('rate', 'descending'));
         break;
     }
   }
 
-  function dataFilter(parameter, order) {
-    const filteredArray = [...filteredData];
+  function updateIncludedPlanets(planet) {
+    if (includedPlanets.includes(planet)) {
+      const newincludedPlanets = [...includedPlanets];
+      const planetIndex = newincludedPlanets.indexOf(planet);
+      newincludedPlanets.splice(planetIndex, 1);
+      setIncludedPlanets(newincludedPlanets);
+    } else {
+      const newincludedPlanets = [...includedPlanets];
+      newincludedPlanets.push(planet);
+      setIncludedPlanets(newincludedPlanets);
+    }
+    setSubPage(1);
+  }
+
+  function sortBy(parameter, order) {
+    const filteredArray = [...initialData];
     setSubPage(1);
     window.scrollTo(0, 0);
 
@@ -81,24 +97,42 @@ const Locations = ({ data }) => {
   }
 
   useEffect(() => {
+    // Incase the user refreshes on page sub page 2 for example
     setSubPage(1);
   }, []);
 
   useEffect(() => {
+    const updatedPaginationData = initialData.filter(item => {
+      if (includedPlanets.length === 0) {
+        // Default case: return everything if no filters applied
+        return item.celestialBody.length > 0;
+      } else {
+        return includedPlanets.includes(item.celestialBody);
+      }
+    });
+    setpaginationData(updatedPaginationData);
     setStartIndex(11 * (subPage - 1) - (subPage - 1));
     if (
-      subPage === Math.ceil(filteredData.length / 10) ||
-      filteredData.length <= 10
+      subPage === Math.ceil(paginationData.length / 10) ||
+      initialData.length <= 10
     ) {
       // Special case when remaining items are between multiples of 10 (i.e. displaying items 41-45 from prev page which was 30-40)
-      setEndIndex(filteredData.length);
+      setEndIndex(paginationData.length);
     } else {
       setEndIndex(10 * subPage);
     }
     window.scrollTo(0, 0);
-  }, [subPage, filteredData.length]);
+  }, [subPage, includedPlanets, initialData, paginationData.length]);
 
-  let listings = filteredData
+  let listings = initialData
+    .filter(item => {
+      if (includedPlanets.length === 0) {
+        // Default case: return everything if no filters applied
+        return item.celestialBody.length > 0;
+      } else {
+        return includedPlanets.includes(item.celestialBody);
+      }
+    })
     .slice(startIndex, endIndex)
     .map(
       ({
@@ -144,10 +178,13 @@ const Locations = ({ data }) => {
         </p>
       </SubSection>
       <SubSection heading="Current listings">
-        <FilterBar onChange={onSelectChange} />
+        <FilterBar
+          onChange={onSelectChange}
+          updateIncludedPlanets={updateIncludedPlanets}
+        />
         <div className="grid gap-5">
           <p>
-            Showing {startIndex + 1}-{endIndex} of {filteredData.length} hab
+            Showing {startIndex + 1}-{endIndex} of {paginationData.length} hab
             listings
           </p>
           <div className=" grid gap-8 min-h-screen">{listings}</div>
@@ -155,7 +192,7 @@ const Locations = ({ data }) => {
       </SubSection>
       <Pagination
         subPage={subPage}
-        data={filteredData}
+        data={paginationData}
         setSubPage={setSubPage}
       />
     </MainWrapper>
