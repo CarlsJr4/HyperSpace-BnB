@@ -1,7 +1,6 @@
-const FilterBar = ({ onChange }) => {
-  // Todo: Update dataset based on filters
-  // Todo: Update pagination based on filters
+import FilterButton from './FilterButton';
 
+const FilterBar = ({ onChange }) => {
   return (
     <>
       <div className="flex flex-col gap-6 mb-6">
@@ -30,12 +29,12 @@ const FilterBar = ({ onChange }) => {
           </label>
         </div>
         <div>
-          <div>Filters:</div>
-          <div className="flex gap-6">
-            <button>Luna</button>
-            <button>Mercury</button>
-            <button>Mars</button>
-            <button>Jupiter</button>
+          <div className="mb-2">Filters:</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:max-w-max gap-4">
+            <FilterButton>Luna</FilterButton>
+            <FilterButton>Mercury</FilterButton>
+            <FilterButton>Mars</FilterButton>
+            <FilterButton>Jupiter</FilterButton>
           </div>
         </div>
       </div>
