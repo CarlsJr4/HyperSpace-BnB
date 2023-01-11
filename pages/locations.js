@@ -69,7 +69,6 @@ const Locations = ({ data }) => {
   function sortBy(parameter, order) {
     const filteredArray = [...initialData];
     setSubPage(1);
-    window.scrollTo(0, 0);
 
     if (order === 'descending') {
       filteredArray.sort((a, b) => {
@@ -121,7 +120,6 @@ const Locations = ({ data }) => {
     } else {
       setEndIndex(10 * subPage);
     }
-    window.scrollTo(0, 0);
   }, [subPage, includedPlanets, initialData, paginationData.length]);
 
   let listings = initialData
